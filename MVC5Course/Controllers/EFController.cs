@@ -73,13 +73,8 @@ namespace MVC5Course.Controllers
 
         public ActionResult Add20Percent()
         {
-            var data = db.Product.Where(p => p.ProductName.Contains("White"));
-            foreach (var item in data)
-            {
-                if (item.Price.HasValue)
-                    item.Price = item.Price * 1.2m;
-            }
-            db.SaveChanges();
+            string str = "white";
+            db.Database.ExecuteSqlCommand("UPDATE dbo.Product SET Price=Price*1.2 WHERE ProductName LIKE @p0", str);
             return RedirectToAction("Index");
         }
 
@@ -117,6 +112,29 @@ namespace MVC5Course.Controllers
         public ActionResult ClientContribution()
         {
             var data = db.vw_ClientContribution.Take(10);
+            return View(data);
+        }
+
+        public ActionResult ClientContribution2(string keyword = "Mary")
+        {
+            var data = db.Database.SqlQuery<ClientContribution>(@"
+	SELECT
+		 c.ClientId,
+		 c.FirstName,
+		 c.LastName,
+		 (SELECT SUM(o.OrderTotal) 
+		  FROM [dbo].[Order] o 
+		  WHERE o.ClientId = c.ClientId) as OrderTotal
+	FROM 
+		[dbo].[Client] as c
+    WHERE c.FirstName LIKE '%'+@p0+'%'
+", keyword);
+            return View(data);
+        }
+
+        public ActionResult ClientContribution3(string keyword = "Mary")
+        {
+            var data = db.usp_GetClientContribution(keyword);
             return View(data);
         }
     }
