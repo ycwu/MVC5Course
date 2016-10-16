@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
+using System.Data.Entity.Validation;
 
 namespace MVC5Course.Controllers
 {
@@ -50,7 +51,20 @@ namespace MVC5Course.Controllers
         {
             var product = db.Product.Find(id);
             product.ProductName = product.ProductName + "!";
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (var eError in ex.EntityValidationErrors)
+                {
+                    foreach (var sError in eError.ValidationErrors)
+                    {
+                        throw new DbEntityValidationException(sError.ErrorMessage + "," + sError.PropertyName);
+                    }
+                }
+            }
             return RedirectToAction("Index");
         }
 
