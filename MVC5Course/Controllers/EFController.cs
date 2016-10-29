@@ -26,8 +26,8 @@ namespace MVC5Course.Controllers
             {
                 ProductName = "sss",
                 Active = true,
-                Price=10,
-                Stock=2
+                Price = 10,
+                Stock = 2
             };
             db.Product.Add(client);
             db.SaveChanges();
@@ -44,7 +44,7 @@ namespace MVC5Course.Controllers
         {
             var product = db.Product.Find(id);
             db.OrderLine.RemoveRange(product.OrderLine);
-            //db.Product.Remove(product);
+            db.Product.Remove(product);
             product.IsDeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -73,7 +73,7 @@ namespace MVC5Course.Controllers
 
         public ActionResult Add20Percent()
         {
-            string str = "white";
+            string str = "%white%";
             db.Database.ExecuteSqlCommand("UPDATE dbo.Product SET Price=Price*1.2 WHERE ProductName LIKE @p0", str);
             return RedirectToAction("Index");
         }
