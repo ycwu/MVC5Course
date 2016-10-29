@@ -180,6 +180,7 @@
     <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -277,6 +278,7 @@
     </Compile>
     <Compile Include="Models\ViewModels\ClientContribution.cs" />
     <Compile Include="Models\ViewModels\ClientLoginViewModel.cs" />
+    <Compile Include="Models\ViewModels\ProductBatchUpdateViewModel.cs" />
     <Compile Include="Models\vw_ClientContribution.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
@@ -390,6 +392,10 @@
     <Content Include="Views\EF\ClientContribution2.cshtml" />
     <Content Include="Views\EF\ClientContribution3.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\MyForm.cshtml" />
+    <Content Include="Views\MB\MyFormResult.cshtml" />
+    <Content Include="Views\MB\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
