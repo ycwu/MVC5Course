@@ -17,6 +17,7 @@ namespace MVC5Course.Controllers
         ProductRepository repo = RepositoryHelper.GetProductRepository();
 
         // GET: Products
+        //[Route("product/list")]
         public ActionResult Index()
         {
             //var data=repo.All().OrderByDescending(p => p.ProductId).Take(10).ToList();
