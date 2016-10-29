@@ -26,6 +26,7 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Products/Details/5
+        [Route("😁😂/{id}")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -134,5 +135,7 @@ namespace MVC5Course.Controllers
             }
             base.Dispose(disposing);
         }
+
+
     }
 }
