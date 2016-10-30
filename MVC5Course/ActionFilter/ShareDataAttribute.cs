@@ -8,7 +8,7 @@ namespace MVC5Course.Controllers
 {
     public class ShareDataAttribute : ActionFilterAttribute
     {
-        //應用1=>共用資料提出來這裡
+        //應用1=>共用Code提出來這裡
         //應用2=>Logdata,Start end time
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
