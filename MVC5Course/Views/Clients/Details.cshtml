@@ -59,6 +59,13 @@
         </dd>
 
     </dl>
+
+    <h3>Html.Action</h3>
+    @Html.Action("Index","Orders",new { ClientID=Model.ClientId })
+
+    <h3>Html.Partial</h3>
+    @Html.Partial("../Orders/Index", Model.Order.ToList())
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
