@@ -9,7 +9,9 @@ using System.Data.Entity.Validation;
 namespace MVC5Course.Controllers
 {
     [LocalDebugOnly]
+#if DEBUG
     [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
+#endif
     public class MBController : BaseController
     {
         // GET: MB
@@ -65,6 +67,7 @@ namespace MVC5Course.Controllers
              */
             //if (ModelState.IsValid)
             {
+
                 foreach (var item in items)
                 {
                     var product = db.Product.Find(item.ProductId);
