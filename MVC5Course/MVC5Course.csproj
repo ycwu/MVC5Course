@@ -423,11 +423,8 @@
     <Content Include="Views\VT\NewIndex.cshtml" />
     <Content Include="Views\Shared\_LayoutBootstrap.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Orders\Create.cshtml" />
-    <Content Include="Views\Orders\Delete.cshtml" />
-    <Content Include="Views\Orders\Details.cshtml" />
-    <Content Include="Views\Orders\Edit.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Clients\ClientOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -437,7 +434,6 @@
     <Folder Include="js\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\LocalDebugOnlyAttribute\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\ShareData\" />
   </ItemGroup>
   <ItemGroup>
