@@ -1,0 +1,10 @@
+﻿@model double?
+
+@if (Model.HasValue)
+{
+    var rating = Convert.ToInt32(Model);
+    for (int i = 0; i < rating; i++)
+    {
+        @:⭐
+    }
+}
