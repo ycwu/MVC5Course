@@ -12,8 +12,11 @@
 
 <form action="">
     搜尋
-    <input type="text" name="search" value="" />
-    <input type="button" value="搜尋" />
+    <!--<input type="text" name="search" value="" />-->
+    @Html.TextBox("search")
+    @Html.DropDownList("CreditRating", "--請選擇評價--")
+    @Html.DropDownList("Gender", "--請選擇性別--")
+    <input type="submit" value="搜尋" />
 </form>
 <table class="table">
     <tr>

@@ -16,16 +16,26 @@ namespace MVC5Course.Controllers
     public class ClientsController : BaseController
     {
         //private FabricsEntities db = new FabricsEntities();
-        
+
         //[OutputCache(Duration = 30, Location = System.Web.UI.OutputCacheLocation.Server)]
         // GET: Clients
-        public ActionResult Index(string search)
+        public ActionResult Index(string search, int? CreditRating, string Gender)
         {
             var client = db.Client.Include(c => c.Occupation);
             client = client.OrderByDescending(p => p.ClientId).Take(10);
 
             if (!string.IsNullOrEmpty(search))
                 client = client.Where(p => p.FirstName.Contains(search));
+            int iTryParse;
+            if (!string.IsNullOrEmpty(CreditRating.ToString()))
+                client = client.Where(p => p.CreditRating== CreditRating);
+            if (!string.IsNullOrEmpty(Gender))
+                client = client.Where(p => p.Gender == Gender);
+
+            var option = (from p in db.Client select p.CreditRating).Distinct().OrderBy(p => p).ToList();
+            ViewBag.CreditRating = new SelectList(option);
+            ViewBag.Gender = new SelectList(new string[] { "M", "F" });
+
             return View(client.ToList());
         }
 
