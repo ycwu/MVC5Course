@@ -194,6 +194,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsApiController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="ActionFilter\ShareDataAttribute.cs" />
     <Compile Include="Controllers\VTController.cs" />
