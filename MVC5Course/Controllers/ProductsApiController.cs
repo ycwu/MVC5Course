@@ -21,12 +21,29 @@ namespace MVC5Course.Controllers
             db.Configuration.LazyLoadingEnabled = false;
         }
 
+        // /prods/1554/orderlines
+        [Route("prods/{id}/orderlines")]
+        public IHttpActionResult GetProductOrderLine(int id)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            Product product = db.Product.Include("OrderLine").FirstOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(product.OrderLine.ToList());
+        }
+
+        [Route("prods")]
         // GET: api/ProductsApi
         public IQueryable<Product> GetProduct()
         {
             return db.Product;
         }
 
+        [Route("prods/{id}")]
         // GET: api/ProductsApi/5
         [ResponseType(typeof(Product))]
         public IHttpActionResult GetProduct(int id)
