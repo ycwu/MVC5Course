@@ -183,6 +183,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ARController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -374,6 +376,7 @@
       <DependentUpon>Fabrics.edmx</DependentUpon>
     </Content>
     <Content Include="README.md" />
+    <Content Include="Areas\Admin\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -475,6 +478,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Products\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="CodeTemplates\ApiControllerEmpty\" />
     <Folder Include="CodeTemplates\ApiControllerWithActions\" />
     <Folder Include="CodeTemplates\ApiControllerWithContext\" />
