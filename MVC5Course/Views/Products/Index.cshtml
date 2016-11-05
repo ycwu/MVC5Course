@@ -2,10 +2,14 @@
 
 @{
     ViewBag.Title = "Index";
+    if (IsAjax)
+    {
+        Layout = "";
+    }
 }
 
 <h2>Index</h2>
-
+@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { pageNo = p }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing("main"))
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -53,6 +57,7 @@
 @using PagedList
 @using PagedList.Mvc
 @Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { pageNo = p }))
+
 
 <div id="details"></div>
 @section Scripts {
